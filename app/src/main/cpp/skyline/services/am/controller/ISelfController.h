@@ -104,6 +104,8 @@ namespace skyline::service::am {
          * @url https://switchbrew.org/wiki/Applet_Manager_services#GetAccumulatedSuspendedTickChangedEvent
          */
         Result GetAccumulatedSuspendedTickChangedEvent(type::KSession &session, ipc::IpcRequest &request, ipc::IpcResponse &response);
+        
+        Result SetAlbumImageTakenNotificationEnabled(type::KSession &session, ipc::IpcRequest &request, ipc::IpcResponse &response);
 
         SERVICE_DECL(
             SFUNC(0x0, ISelfController, Exit),
@@ -119,7 +121,8 @@ namespace skyline::service::am {
             SFUNC(0x13, ISelfController, SetAlbumImageOrientation),
             SFUNC(0x28, ISelfController, CreateManagedDisplayLayer),
             SFUNC(0x5A, ISelfController, GetAccumulatedSuspendedTickValue),
-            SFUNC(0x5B, ISelfController, GetAccumulatedSuspendedTickChangedEvent)
+            SFUNC(0x5B, ISelfController, GetAccumulatedSuspendedTickChangedEvent),
+            SFUNC(0x64, ISelfController, SetAlbumImageTakenNotificationEnabled)
         )
     };
 }
