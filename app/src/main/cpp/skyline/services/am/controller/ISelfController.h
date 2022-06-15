@@ -108,6 +108,7 @@ namespace skyline::service::am {
             SFUNC(0x28, ISelfController, CreateManagedDisplayLayer),
             SFUNC(0x5A, ISelfController, GetAccumulatedSuspendedTickValue),
             SFUNC(0x5B, ISelfController, GetAccumulatedSuspendedTickChangedEvent)
+            test
         )
     };
 }
