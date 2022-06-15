@@ -75,4 +75,8 @@ namespace skyline::service::am {
         response.copyHandles.push_back(handle);
         return {};
     }
+    
+    Result ISelfController::SetAlbumImageTakenNotificationEnabled(type::KSession &session, ipc::IpcRequest &request, ipc::IpcResponse &response) {
+        return {};
+    }
 }
