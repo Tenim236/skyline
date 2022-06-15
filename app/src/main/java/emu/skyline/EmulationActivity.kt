@@ -107,6 +107,7 @@ class EmulationActivity : AppCompatActivity(), SurfaceHolder.Callback, View.OnTo
     var fps : Int = 0
     var averageFrametime : Float = 0.0f
     var averageFrametimeDeviation : Float = 0.0f
+    var ramUsage : Float = 0.0f
 
     /**
      * Writes the current performance statistics into [fps], [averageFrametime] and [averageFrametimeDeviation] fields
@@ -291,7 +292,8 @@ class EmulationActivity : AppCompatActivity(), SurfaceHolder.Callback, View.OnTo
                 postDelayed(object : Runnable {
                     override fun run() {
                         updatePerformanceStatistics()
-                        text = "$fps FPS\n${"%.1f".format(averageFrametime)}±${"%.2f".format(averageFrametimeDeviation)}ms"
+                        ramUsage = File("/proc/self/statm").readLines()[0].split(' ')[1].toFloat() * 4096 / 1000000
+                        text = "$fps FPS\n${"%.1f".format(averageFrametime)}±${"%.2f".format(averageFrametimeDeviation)}ms\n${"%.2fMB".format(ramUsage)}"
                         postDelayed(this, 250)
                     }
                 }, 250)
